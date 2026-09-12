@@ -10,4 +10,4 @@ Only replace it with visuals and characters that look more like characters from 
 - Colorful and playable.
 - Controls with keyboard up, down, left, right, spacebar to jump, shift to speed up
 
-![The title screen](screenshot.png)
+![The title screen](https://github.com/TimelordQ/The-Matrix-Bros/blob/main/ScreenShot.png)
