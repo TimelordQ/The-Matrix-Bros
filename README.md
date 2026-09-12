@@ -14,4 +14,4 @@ Only replace it with visuals and characters that look more like characters from 
 
 ![Gameplay Screen](https://github.com/TimelordQ/The-Matrix-Bros/blob/main/Gameplay.png)
 
-[Playable Demo(https://timelordq.github.io/The-Matrix-Bros/index.html)]
+Playable Demo here: https://timelordq.github.io/The-Matrix-Bros/index.html
