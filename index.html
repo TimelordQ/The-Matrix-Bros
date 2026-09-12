@@ -58,7 +58,7 @@ const MOVE_ACC = 0.6;
 const RUN_ACC = 0.9;
 const FRICTION = 0.82;
 const MAX_WALK = 4.2, MAX_RUN = 7.2;
-const JUMP_V = -11.6;
+const JUMP_V = -12.6;
 const ENEMY_SPEED = 1.1;
 
 // ---------------------------------------------------------------------
@@ -229,7 +229,7 @@ function buildLevel(){
   for(let i=0;i<4;i++) for(let j=0;j<=i;j++) stepBlock(137+i, GROUND_ROW-1-j);
   for(let i=0;i<3;i++) for(let j=0;j<=2-i;j++) stepBlock(143-i, GROUND_ROW-1-j);
   for(let i=0;i<4;i++) for(let j=0;j<=i;j++) stepBlock(147-i, GROUND_ROW-1-j);
-  enemies.push({type:'goomba', c:140});
+  enemies.push({type:'goomba', c:141});
 
   // Section 8: final stretch + flag
   ground(152,178);
@@ -654,18 +654,18 @@ function drawPlayer(){
   const p=player;
   if(p.invuln>0 && Math.floor(p.invuln/5)%2===0) return;
   ctx.save();
-  // origin at player's top-center; the figure is drawn in a 30x44 local space (scaled up, brighter)
-  const cx = p.x + p.w/2;
-  ctx.translate(cx, p.y);
-  if(p.facing<0) ctx.scale(-1,1);
   const W=30, H=44;
+  const cx = p.x + p.w/2;
+  // align the figure's feet with the bottom of the hitbox so it sits on surfaces instead of sinking into them
+  ctx.translate(cx, p.y + p.h - H);
+  if(p.facing<0) ctx.scale(-1,1);
   const walking = Math.abs(p.vx)>0.5 && p.onGround && !p.winSlide;
   const legSwing = walking? Math.sin(p.walkPhase*4)*4 : 0;
   const jumping = !p.onGround;
 
-  // strong glow aura so the figure pops against the code rain
-  ctx.fillStyle='rgba(0,255,102,0.12)'; ctx.fillRect(-9, -12, W+18, H+24);
-  ctx.fillStyle='rgba(0,255,102,0.22)'; ctx.fillRect(-5, -6, W+10, H+12);
+  // soft circular glow behind head and body so the figure pops against the code rain
+  ctx.fillStyle='rgba(0,255,102,0.18)'; ctx.beginPath(); ctx.arc(W/2, 9, 13, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle='rgba(0,255,102,0.12)'; ctx.beginPath(); ctx.arc(W/2, 24, 16, 0, Math.PI*2); ctx.fill();
 
   // legs (data streams)
   ctx.strokeStyle='#00ff66'; ctx.lineWidth=3; ctx.lineCap='round';
