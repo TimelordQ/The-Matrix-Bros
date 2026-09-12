@@ -1,4 +1,4 @@
-### The-Matrix-Bros" 
+### The Matrix Bros
 
 A vibe coded mashup of Matrix meets Super Mario using the Ornith-1.5-35B-Q4_K_M model on a 6GB VRAM machine with 64 GB Ram. Total time to generate with a couple fixes - about 2 hours, averaging about 20TPS. It's not a full game, just the first level, and while it's not perfect - it's absolutely a great start. 
 
